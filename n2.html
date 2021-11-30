@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=320, initial-scale=1">
+    <meta charset="utf-8">
+    <script src="jQuery 3.3.1.js"></script>
+    <style>
+      #buts {
+          position: absolute;
+          margin: auto;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          height: 300px;
+      }
+      .but {
+          font-size: 30px;
+          margin: 5px;
+      }
+    </style>
+    <script>
+      $(document).ready(function() {
+          var num = new Array();
+          num = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "x", "Ù", "Ú", ">", "°", "(", ")"];
+          for(var i = 0; i < 18; i++){
+          $("#buts").append("<button class='but'>" + num[i] + "</button>");
+          }
+          $(".but").click(function(){
+              $("#sim").append($(this).text());
+        });
+        $("#k").click(function(){
+            $("#kol").text("");
+            var t = $("#ot").html();
+            var i = 0;
+            while(t != ""){
+                t = t.substring(t.indexOf(">") + 1, t.length);
+                i++;
+            }
+            $("#kol").text(i);
+        });
+        $("#pr").click(function(){
+            $("#pro").text("");
+            var pr0 = $("#otv").val();
+            var t = $("#ot").html();
+            while(t != ""){
+                var pr = t.substring(0, t.indexOf("<"));
+                if(pr0 == pr){
+                    $("#pro").text("yes");
+                }
+                t = t.substring(t.indexOf(">") + 1, t.length);
+            }
+        });
+          $("#go").click(function(){
+              $("#ot").html("");
+        var f = $("#fun").val();
+        var t = $("#sim").text();
+        for(var x1 = 0; x1 < 2; x1++) {
+          for(var x2 = 0; x2 < 2; x2++) {
+            for(var x3 = 0; x3 < 2; x3++) {
+              if(/x4/.test(t)) {
+                for(var x4 = 0; x4 < 2; x4++) {
+                if(/x5/.test(t)) {
+                for(var x5 = 0; x5 < 2; x5++) {
+                if(/x6/.test(t)) {
+                for(var x6 = 0; x6 < 2; x6++) {
+                if(/x7/.test(t)) {
+                for(var x7 = 0; x7 < 2; x7++) {
+                if(/x8/.test(t)) {
+                for(var x8 = 0; x8 < 2; x8++) {
+                if(/x9/.test(t)) {
+                for(var x9 = 0; x9 < 2; x9++) {
+                if(/x0/.test(t)) {
+                for(var x10 = 0; x10 < 2; x10++) {
+                var o = pod(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10);
+                if(o == f) {
+                  $("#ot").append(x1 + ", " + x2 + ", " + x3 + ", " + x4 + ", " + x5 + ", " + x6 + ", " + x7 + ", " + x8 + ", " + x9 + ", " + x10  + "<br/>");
+                }
+              }
+              } else {
+                var o = pod(x1, x2, x3, x4, x5, x6, x7, x8, x9);
+                if(o == f) {
+                  $("#ot").append(x1 + ", " + x2 + ", " + x3 + ", " + x4 + ", " + x5 + ", " + x6 + ", " + x7 + ", " + x8 + ", " + x9 + "<br/>");
+                }
+              }
+              }
+              } else {
+                var o = pod(x1, x2, x3, x4, x5, x6, x7, x8);
+                if(o == f) {
+                  $("#ot").append(x1 + ", " + x2 + ", " + x3 + ", " + x4 + ", " + x5 + ", " + x6 + ", " + x7 + ", " + x8 + "<br/>");
+                }
+              }
+              }
+              } else {
+                var o = pod(x1, x2, x3, x4, x5, x6, x7);
+                if(o == f) {
+                  $("#ot").append(x1 + ", " + x2 + ", " + x3 + ", " + x4 + ", " + x5 + ", " + x6 + ", " + x7 + "<br/>");
+                }
+              }
+              }
+              } else {
+                var o = pod(x1, x2, x3, x4, x5, x6);
+                if(o == f) {
+                  $("#ot").append(x1 + ", " + x2 + ", " + x3 + ", " + x4 + ", " + x5 + ", " + x6 + "<br/>");
+                }
+              }
+              }
+              } else {
+                var o = pod(x1, x2, x3, x4, x5);
+                if(o == f) {
+                  $("#ot").append(x1 + ", " + x2 + ", " + x3 + ", " + x4 + ", " + x5 + "<br/>");
+                }
+              }
+              }
+              } else {
+                var o = pod(x1, x2, x3, x4);
+                if(o == f) {
+                  $("#ot").append(x1 + ", " + x2 + ", " + x3 + + ", " + x4 + "<br/>");
+                }
+              }
+              }
+              } else {
+                var o = pod(x1, x2, x3);
+                if(o == f) {
+                  $("#ot").append(x1 + ", " + x2 + ", " + x3 + "<br/>");
+                }
+              }
+            }
+          }
+        }
+    });
+      });
+      function pod(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10) {
+        var t = $("#sim").text();
+        t = t.replace(/x1/g, x1);
+        t = t.replace(/x2/g, x2);
+        t = t.replace(/x3/g, x3);
+        t = t.replace(/x4/g, x4);
+        t = t.replace(/x5/g, x5);
+        t = t.replace(/x6/g, x6);
+        t = t.replace(/x7/g, x7);
+        t = t.replace(/x8/g, x8);
+        t = t.replace(/x9/g, x9);
+        t = t.replace(/x0/g, x10);
+        if(/[(]/.test(t)) {
+          var l = t.match(/[(]/g).length;
+          for(var i = 0; i < l; i++) {
+          var t0 = t.substring(t.indexOf("(") + 1, t.indexOf(")"));
+            var ot = dei(t0);
+          t = t.substring(0, t.indexOf("(")) + ot + t.substring(t.indexOf(")") + 1, t.length);
+        }
+        }
+          t = dei(t);
+        return t;
+      }
+      function dei(t) {
+        t = t.replace(/-0/g, "1");
+        t = t.replace(/-1/g, "0");
+        if(/Ù/g.test(t)) {
+          var l = t.match(/Ù/g).length;
+          for(var i = 0; i < l; i++) {
+            var pos = t.indexOf("Ù");
+            var n1 = t.substring(pos - 1, pos);
+            var n2 = t.substring(pos + 1, pos + 2);
+            if(n1 == "1" && n2 == "1") {
+              var otv = "1";
+            } else {
+              var otv = "0";
+            }
+            t = t.replace(/\dÙ\d/, otv);
+          }
+        }
+        if(/Ú/g.test(t)) {
+          var l = t.match(/Ú/g).length;
+          for(var i = 0; i < l; i++) {
+            var pos = t.indexOf("Ú");
+            var n1 = t.substring(pos - 1, pos);
+            var n2 = t.substring(pos + 1, pos + 2);
+            if(n1 == "0" && n2 == "0") {
+              var otv = "0";
+            } else {
+              var otv = "1";
+            }
+            t = t.replace(/\dÚ\d/, otv);
+          }
+        }
+        if(/>/g.test(t)) {
+          var l = t.match(/>/g).length;
+          for(var i = 0; i < l; i++) {
+            var pos = t.indexOf(">");
+            var n1 = t.substring(pos - 1, pos);
+            var n2 = t.substring(pos + 1, pos + 2);
+            if(n1 == "1" && n2 == "0") {
+              var otv = "0";
+            } else {
+              var otv = "1";
+            }
+            t = t.replace(/\d>\d/, otv);
+          }
+        }
+        if(/°/g.test(t)) {
+          var l = t.match(/°/g).length;
+          for(var i = 0; i < l; i++) {
+            var pos = t.indexOf("°");
+            var n1 = t.substring(pos - 1, pos);
+            var n2 = t.substring(pos + 1, pos + 2);
+            if(n1 == n2) {
+              var otv = "1";
+            } else {
+              var otv = "0";
+            }
+            t = t.replace(/\d°\d/, otv);
+          }
+        }
+        return t;
+      }
+    </script>
+  </head>
+  <body>
+  <div id="buts"></div>
+    <input id="fun" type="text" value="0"/>
+    <span id="sim"></span><input type="text" id="otv"/>
+    <button id="go">go</button><button id="pr">pr</button><button id="k">kol</button><br/><br/>
+    Otvet:<br/>
+    <span id="pro"></span><br/>
+    <span id="kol"></span><br/>
+    <span id="ot"></span>
+  </body>
+</html>
